@@ -9,12 +9,24 @@
                     @csrf
                     <label class="text-white" for="id">Account id : </label>
                     <input class="form-control" type="number" name="id">
+                    
+                        @error('id')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
 
-                    <label class="text-white" for="ammt">Ammount : </label>
-                    <input class="form-control" type="number" name="ammt">
+                    <label class="text-white" for="ammount">Ammount : </label>
+                    <input class="form-control" type="number" name="ammount">
+
+                        @error('ammt')
+                          <div class="text-danger">{{ $message }}</div>  
+                        @enderror
 
                     <label class="text-white" for="ammt">Description : </label>
                     <textarea class="form-control" name="description" id="description" cols="21" rows="5"></textarea>
+
+                        @error('description')
+                            <div class="text-white">{{ $message }}</div>
+                        @enderror
 
                     <button class="form-control btn2 text-white">Submit</button>
                 </div>

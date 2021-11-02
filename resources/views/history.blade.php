@@ -10,15 +10,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($transfers as $transfer)
+            @foreach ($userTransfers as $transfer)
                 <tr>
                     <td class="text-white text-center">{{ $transfer->ammount }}</td>
                     
-                    @foreach($users as $user)
-                    @if($transfer->reciever_id == $user->id)
-                    <td class="text-white text-center">{{ $user->name }}</td>
-                    @endif
+                    @foreach($allUsers as $user)
+                        @if($transfer->reciever_id == $user->id)
+                            <td class="text-white text-center">{{ $user->name }}</td>
+                        @endif
                     @endforeach
+                    
                     <td class="text-white text-center">{{ $transfer->description }}</td>
                 </tr>
             @endforeach        

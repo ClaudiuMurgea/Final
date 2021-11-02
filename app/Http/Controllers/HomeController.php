@@ -18,7 +18,6 @@ class HomeController extends Controller
         $balance = Auth()->user()->balance;
         $id = Auth()->user()->id;
         
-
         return view('home')->with(['username' => $username, 'balance' => $balance, 'id' => $id]);
     }
 }

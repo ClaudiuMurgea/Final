@@ -11,49 +11,65 @@ class TransfersController extends Controller
     public function index ()
     {   
         $id = Auth()->user()->id;
-        $transfers = Transfer::where('sender_id', $id)->get();
+        $userTransfers = Transfer::where('sender_id', $id)->get();
 
-        $users = User::all();
+        $allUsers = User::all();
 
-        return view('history', compact('transfers', 'users'));
+        return view('history', compact('userTransfers', 'allUsers'));
 
         
     }
 
     public function edit ()
     {   
+        $allUsers = User::all();
         $senderID = Auth()->user()->id;
-        return view('transfer')->with('senderID', $senderID);
+        return view('transfer', compact('senderID', 'allUsers'));
     }
     
     public function update (Request $request, $id) 
     {
-            #Sender Update
+        #Validation
 
-            $transferAMMT = $request->input('ammt');
+            $this->validate($request,[
+                'id' => 'required|exists:users,id'
+            ]);
 
-            $senderNewBalance = Auth()->user()->balance - $transferAMMT;
+            $this->validate($request, [
+                'ammount' => 'required'
+            ]);
+
+            $this->validate($request,[
+                'description' => 'required'
+            ]);
+                                    
+
+        #Sender Update
+
+            $transferAmmount = $request->input('ammount');
+
+            $senderNewBalance = Auth()->user()->balance - $transferAmmount;
     
-            $sender = User::where('id', $id);
-            $sender->update(['balance' => $senderNewBalance]);
+            $userSender = User::where('id', $id);
+            $userSender->update(['balance' => $senderNewBalance]);
     
             //------------------------------------------------------
     
-            #Reciever Update
-            
+        #Reciever Update
+
             $recieverID = $request->input('id');
-            $Reciever =  User::find($recieverID);
+            $recieverOldBalance =  User::find($recieverID);
     
-            $recieverNewBalance = $Reciever->balance + $transferAMMT;
+            $recieverNewBalance = $recieverOldBalance->balance + $transferAmmount;
     
-            $reciever = User::where('id', $recieverID);
-            $reciever->update(['balance' => $recieverNewBalance]);
+            $userReciever = User::where('id', $recieverID);
+            $userReciever->update(['balance' => $recieverNewBalance]);
             
             #Transfer Create
 
             $transfer = Transfer::create([
                 'description' => $request->input('description'),
-                'ammount' => $request->input('ammt'),
+                'ammount' => $request->input('ammount'),
                 'sender_id' => Auth()->user()->id,
                 'reciever_id' => $recieverID
             ]);
