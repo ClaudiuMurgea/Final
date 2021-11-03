@@ -17,7 +17,7 @@
                     <label class="text-white" for="ammount">Ammount : </label>
                     <input class="form-control" type="number" name="ammount">
 
-                        @error('ammt')
+                        @error('ammount')
                           <div class="text-danger">{{ $message }}</div>  
                         @enderror
 

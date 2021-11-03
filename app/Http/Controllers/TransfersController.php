@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Transfer;
+use App\Rules\Balance;
 
 class TransfersController extends Controller
 {
@@ -29,22 +30,16 @@ class TransfersController extends Controller
     
     public function update (Request $request, $id) 
     {
-        #Validation
 
-            $this->validate($request,[
-                'id' => 'required|exists:users,id'
-            ]);
+    #Validation
 
-            $this->validate($request, [
-                'ammount' => 'required'
-            ]);
+            $request->validate([
+                'id' => ['required', 'exists:users,id'],
+                'ammount' => ['required', new Balance],
+                'description' => ['required']
+            ]);               
 
-            $this->validate($request,[
-                'description' => 'required'
-            ]);
-                                    
-
-        #Sender Update
+    #Sender Update
 
             $transferAmmount = $request->input('ammount');
 
@@ -53,9 +48,7 @@ class TransfersController extends Controller
             $userSender = User::where('id', $id);
             $userSender->update(['balance' => $senderNewBalance]);
     
-            //------------------------------------------------------
-    
-        #Reciever Update
+    #Reciever Update
 
             $recieverID = $request->input('id');
             $recieverOldBalance =  User::find($recieverID);
@@ -65,7 +58,7 @@ class TransfersController extends Controller
             $userReciever = User::where('id', $recieverID);
             $userReciever->update(['balance' => $recieverNewBalance]);
             
-            #Transfer Create
+    #Transfer Create
 
             $transfer = Transfer::create([
                 'description' => $request->input('description'),
