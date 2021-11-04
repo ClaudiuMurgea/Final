@@ -43,8 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Transfer () 
+    public function Transfers ()
     {
-        return $this->hasOne(Transfer::class);
+        return $this->hasMany(Transfer::class, 'reciever_id', 'id');
     }
+
 }

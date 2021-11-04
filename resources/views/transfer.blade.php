@@ -4,9 +4,9 @@
 <div><h3 class="text-center text-white">Transfer to another account!</h3></div>
     <div class="container col-8 offset-5">
         <div class="row">
-                <form action="/transfer/{{ $senderID }}" method="POST">
-                    <div class="form-group">
-                    @csrf
+            <form action="/transfer/{!! Auth()->user()->id !!}" method="POST">
+              @csrf
+                <div class="form-group">
                     <label class="text-white" for="id">Account id : </label>
                     <input class="form-control" type="number" name="id">
                     
@@ -18,7 +18,7 @@
                     <input class="form-control" type="number" name="ammount">
 
                         @error('ammount')
-                          <div class="text-danger">{{ $message }}</div>  
+                        <div class="text-danger">{{ $message }}</div>  
                         @enderror
 
                     <label class="text-white" for="ammt">Description : </label>
@@ -30,7 +30,7 @@
 
                     <button class="form-control btn2 text-white">Submit</button>
                 </div>
-                </form>
+            </form>
         </div>
     </div>
 @endsection
