@@ -20,7 +20,7 @@
                 <td class="text-white text-center">{{ $transfer->description }}</td>
                 <td class="text-white text-center">{{ $transfer->User->name }}</td>
                 <td class="text-white text-center">{{ $transfer->created_at }}</td>
-                <td class="text-white text-center"> <strong>Recieved</strong> </td>
+                <td class="text-white text-center"> <strong>Sent</strong> </td>
             </tr>
             <tr>
                 @endif
@@ -29,7 +29,7 @@
                 <td class="text-white text-center">{{ $transfer->description }}</td>
                 <td class="text-white text-center">{{ $transfer->User->name }}</td>
                 <td class="text-white text-center">{{ $transfer->created_at }}</td>
-                <td class="text-white text-center"> <strong>Sent</strong> </td>
+                <td class="text-white text-center"> <strong>Recieved</strong> </td>
                 @endif
             <tr>
             @endforeach
