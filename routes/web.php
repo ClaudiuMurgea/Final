@@ -5,8 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TransfersController;
 
 Auth::routes();
-Route::get('/',     [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/',                 [HomeController::class, 'index']);
+Route::get('/home',             [HomeController::class, 'index'])->name('home');
 
     #Transfer Routes
 Route::get('/history',          [TransfersController::class, 'index']);

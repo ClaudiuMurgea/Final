@@ -9,5 +9,10 @@ class Transfer extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['description', 'ammount', 'sender_id', 'reciever_id'];
+    protected $fillable = ['description', 'ammount', 'user_id', 'reciever_id'];
+
+    public function User ()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

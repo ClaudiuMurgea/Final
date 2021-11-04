@@ -16,9 +16,10 @@ class CreateTransfersTable extends Migration
         Schema::create('transfers', function (Blueprint $table) {
             $table->increments('id');
             $table->text('description');
-            $table->integer('sender_id');
-            $table->integer('reciever_id');
             $table->integer('ammount');
+            $table->unsignedInteger('user_id');
+            $table->integer('reciever_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

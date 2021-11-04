@@ -31,13 +31,14 @@ class Balance implements Rule
         $id = Auth()->user()->id;
         $user = User::find($id);
         
+        if($value > 0) {
         return ($value <= $user->balance);
-
+        }
     }
 
 
     public function message()
     {   
-        return "The :attribute is higher than balance!";
+        return ":attribute cannot exceed balance!";
     }
 }

@@ -11,21 +11,21 @@ class TransfersController extends Controller
 {
     public function index ()
     {   
-        $id = Auth()->user()->id;
-        $userTransfers = Transfer::where('sender_id', $id)->get();
+        $senderID = Auth()->user()->id;
+        $userSender = User::find($senderID);
 
-        $allUsers = User::all();
+        $recieverID = $userSender->Transfer->reciever_id;
+        $userReciever = User::find($recieverID);
 
-        return view('history', compact('userTransfers', 'allUsers'));
-
-        
+        return view('history', compact('userSender', 'userReciever'));    
     }
 
     public function edit ()
     {   
-        $allUsers = User::all();
         $senderID = Auth()->user()->id;
-        return view('transfer', compact('senderID', 'allUsers'));
+        $user = User::find(1);
+
+        return view('transfer', compact('senderID', 'user'));
     }
     
     public function update (Request $request, $id) 
@@ -63,7 +63,7 @@ class TransfersController extends Controller
             $transfer = Transfer::create([
                 'description' => $request->input('description'),
                 'ammount' => $request->input('ammount'),
-                'sender_id' => Auth()->user()->id,
+                'user_id' => Auth()->user()->id,
                 'reciever_id' => $recieverID
             ]);
 
