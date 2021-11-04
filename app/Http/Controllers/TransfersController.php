@@ -13,7 +13,9 @@ class TransfersController extends Controller
     {   
         $senderID = Auth()->user()->id;
 
-        $transfers = Transfer::where('user_id', $senderID)->orderBy('created_at', 'DESC')->get();
+        $transfers = Transfer::where('user_id', $senderID)
+                                ->orWhere('reciever_id', $senderID)
+                                ->orderBy('created_at', 'DESC')->get();
 
         return view('history', compact('transfers'));
     }
