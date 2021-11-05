@@ -7,7 +7,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
  body {
-  background: -webkit-gradient(linear, left top, left bottom, from(#01c34f), to(#fa3757)) fixed;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4977f7), to(#8fb1f0)) fixed;
 }
 .navi {
   position: absolute;
@@ -17,40 +17,54 @@
   position: absolute;
   right: 100px;
 }
-
+.imgb {
+  max-height: 440px;
+  max-width: 920px;
+  min-height: 440px;
+  min-width: 920px;
+}
+.img {
+  max-height: 50px;
+  max-width: 400px;
+  min-height: 50px;
+  min-width: 400px;
+  margin: 0;
+  padding: 0;
+}
 .btn2 {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  padding: 10px 60px;
-  border: 1px solid #f7f7f7;
-  border-radius: 0px;
-  background: #25cc51;
-  background: -webkit-gradient(linear, left top, left bottom, from(#25cc51), to(#66e392));
-  background: -moz-linear-gradient(top, #25cc51, #66e392);
-  background: linear-gradient(to bottom, #25cc51, #66e392);
+  padding: 3px 20px;
+  border: 1px solid #54c94e;
+  border-radius: 9px;
+  background: #53ff4a;
+  background: -webkit-gradient(linear, left top, left bottom, from(#53ff4a), to(#56c451));
+  background: -moz-linear-gradient(top, #53ff4a, #56c451);
+  background: linear-gradient(to bottom, #53ff4a, #56c451);
   -webkit-box-shadow: #ff5959 0px 0px 0px 0px;
   -moz-box-shadow: #ff5959 0px 0px 0px 0px;
   box-shadow: #ff5959 0px 0px 0px 0px;
-  text-shadow: #591717 0px 0px 0px;
-  font: normal normal bold 17px verdana;
-  color: #ffffff;
+  text-shadow: #591717 1px 1px 0px;
+  font: normal bold 20px georgia;
+  color: #fbfcf9;
   text-decoration: none;
 }
 .btn2:hover,
 .btn2:focus {
-  background: #2cf561;
-  background: -webkit-gradient(linear, left top, left bottom, from(#2cf561), to(#7affaf));
-  background: -moz-linear-gradient(top, #2cf561, #7affaf);
-  background: linear-gradient(to bottom, #2cf561, #7affaf);
-  color: #ffffff;
+  border: 1px solid #61e75a;
+  background: #64ff59;
+  background: -webkit-gradient(linear, left top, left bottom, from(#64ff59), to(#67eb61));
+  background: -moz-linear-gradient(top, #64ff59, #67eb61);
+  background: linear-gradient(to bottom, #64ff59, #67eb61);
+  color: #fbfcf9;
   text-decoration: none;
 }
 .btn2:active {
-  background: #167a31;
-  background: -webkit-gradient(linear, left top, left bottom, from(#167a31), to(#66e392));
-  background: -moz-linear-gradient(top, #167a31, #66e392);
-  background: linear-gradient(to bottom, #167a31, #66e392);
+  background: #32992c;
+  background: -webkit-gradient(linear, left top, left bottom, from(#32992c), to(#56c451));
+  background: -moz-linear-gradient(top, #32992c, #56c451);
+  background: linear-gradient(to bottom, #32992c, #56c451);
 }
 .btn2:after{
   content:  "\0000a0";
@@ -62,9 +76,10 @@
   position: relative;
   top: 0px;
   left: 0px;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEfUlEQVRIibVUa1CUVRh+vjss8LWywCK4ojKVLLigEjTIrOwaaKMMTBfzhziEOsPNsWmYLC2cqMYRnIo0wqm8IE3/nBi0mMYox0ukQwzsyJISEQlyEd3lsuy3++35+qEgLLs5NPX+O+c853me9zlzXmABlZOlPvry5tDTC7lDLwScpFclJBtUCf+bwL+pOQKxMcImU5r4LgDWF9gtK3C5FX+maGNqyJsJTwe+NHuTmb0wrFRtrTygqxgYckfe+sP5LQCFpih9tjF6f/6WFZVR6kWrQzhRm54Yvk0dwsXf+mtigBBlEABtXidWVR3QvdNqcfR290oXpjkpbxeZRrH60L4lpQcq+7/wTAVOlOXFFZvWRvA0PRdKFAUtllG5qs56wu4ac3x0UPfae9V3TjV8f383ANmfAADQpjSx+rkUbWlhtgEhKg6X24fRPTiCMecUnBKBVh0EXagGpmQtJImgpqEDl9qH6s4323bOJgd8PzKh3YGuwmwDeJZGTYMFYSuGsbsgAJs3BmLDegG7Xg3AslWjqGnogEwIinMNoOUg2ZvcpwBFYWVZXlxpiIrDie86IVF2xMYI81ws1wlwMxM42dQJgaOxb4c+X+DolMcKPJ8WtdOUrOWvdoxgfQawt0CL2vphTEx6ZjBOieDYqSEUbQ9HTjaHC9fvICVeQ7+4YenuxwqkGcLMDE3h5p0RJOpVEAQaRXkR+PzruxgYdGHoroza+hHs2haO4CAGsTEC+m33QFFAclxohjcnm5O16OjaVaokAJA9CjSBfAIA2BwOdHQ9cm2IC8QvlwWoAlgsjwN6+6WZs9FxBwBAo+aX7d8TdSmApwgAtFsd3SxDg2UZivfuhBBAdj9aezwKaJoCw1DwEGXOGSGzHDPgWeaBAENTPHu26X7R2ab7M4D3izRtAJJCg1VYs0qYybz2zDhWpwITkwR/3nYhM11ESPCDf9ra+rATm6uv4uOBVAAzkvPeoMUy2uwhCp6MDIOlawout4KaumEUvBKGpdECorQcCreH4/hXI5h0EPT0SVgsaqAoQGvXvZ9mkwM+PhpFQd/0ianNlKzlP2uwwEnbUZwXgeAgBl2/O2Gzy3h2TTAkiaD65DBYOQiluYlotd4j5qLmdU6Xp2U237wOFAWdR+qtNRNTbuRv0oP3iOjrd3nDcHvQDc4ThPyN8XDJBJV11jpvcsDP1JQwSWobLSjKNqAk14CLvw7hypW7sDsccEoElnYG0WoNSnIi4XIT1HxjwRTGyUPD5J8EaPM68XDl/iWvH/xwoP7iz1dsb+yIKzSuiWAzKK13p7h2Y5RUnbHW2V12x5G3dcUsS8nnf7CVwMfIAACkPxNcdq1Rr+RkqU9PizM0ZXjBrPv08J6kG1+Wp0gnylPdVXtX/7YtK+Y4z9HJ08YyjWL19Ua9kmUUP/BJDgBPrQjYkmV84pC/6N4qWfxjRVl0G3wPSdqcJpYn6lVb/UZ0s8d57maP85w/AzxHQeAoAq+cHxZpvjpWMU/VH9l/VT6j8Fft1qkunqPEhdz5G7B6shMc8ti+AAAAAElFTkSuQmCC") no-repeat left center transparent;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACXUlEQVRIie3Vz4tVZRgH8M97z52bIKRIuEgQAldjDJdhcCpUbBNoy3uk8Aej2cIh50g/XNzTopVXItycwojIH9Gi8F4k/ANUlHRauBBq06AgIdKudGBwZu7b4p4xJbmT0yz9wgsPz4/v933O+77PCf4DGlmzFoSjeLd0nYzRx53PWzOL1YbFEtKJfK3gB2zF9+hiF65E3uoUrbv96it9ybN8WDCJTdhbCXF3jPZiN4YDk2mWjzx1B2+/d8RcMrAHX+EPNHADx3ubih8SBnEOazEezH97tvh08Q7Sibw2lwx8hjO4htEoTqGDDIcIHeJNjJY5p6LkeONQs9ZXoJHlawQ/4iN8EaPtqAbhAnZgvFxvEC4Ra9iOAh+ESjifZs0XniiQTjSHApN6h3mgXbQOh+BlPd8wqviyXDXUCVcx1C5a72M/NhMm0ywfWuANY2OfmF41m+Ib/IWd7aJ1Lc3yFTiI5//1YR/H/ciJTtGaSbP8FZwtaw7cj/faIc3yDfgFNyI7Y6V757lZ3dDV7UNa0buuKnNJ97uvjz4MpFn+YikyEmPcWH2kaCRwK3QrZhMki+x7AQNRmuVPijwgqK78c2BqetXsm3gNL2EfTpdJS7Vv4adp96Yeewdplm/DBbxeupZkt4vWxQXOvi95OfBM4JnA/0cCjay5euPo1nf0Jma9jNWXag+Oblk3uGnLb7/+fHkmpIfzmuiq3sRcTlwX46tVUb0k398uWqeXgznN8n04RahXcRcPMJZm+fpH8hLM+2fsPY29ueS8Uw2J23HeOI5h23J0oPcfH59P/P43zG3DKtSaTuMAAAAASUVORK5CYII=") no-repeat left center transparent;
   background-size: 100% 100%;
 }
+
 
 :root {
   --blue: #3490dc;

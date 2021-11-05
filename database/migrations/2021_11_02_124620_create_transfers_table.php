@@ -17,9 +17,9 @@ class CreateTransfersTable extends Migration
             $table->increments('id');
             $table->text('description');
             $table->integer('ammount');
-            $table->integer('user_id');
-            $table->unsignedInteger('reciever_id');
-            $table->foreign('reciever_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('user_id');
+            $table->integer('reciever_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

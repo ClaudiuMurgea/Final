@@ -13,7 +13,8 @@ class Transfer extends Model
 
     public function User ()
     {
-        return $this->belongsTo(User::class, 'reciever_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
 
 }

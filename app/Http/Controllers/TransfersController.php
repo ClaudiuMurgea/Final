@@ -12,7 +12,6 @@ class TransfersController extends Controller
     public function index ()
     {   
         $senderID = Auth()->user()->id;
-
         $transfers = Transfer::where('user_id', $senderID)
                                 ->orWhere('reciever_id', $senderID)
                                 ->orderBy('created_at', 'DESC')->get();
