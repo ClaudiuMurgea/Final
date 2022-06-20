@@ -5,7 +5,7 @@
     <nav class="navi">
         <ul style="list-style-type:none">
             <li>
-                <span class="pl-5 pt-2 text-white">Balance : {{ $balance }} $</span>
+                <span class="pl-5 mt-2 text-white">Balance : {{ $balance }} $</span>
             </li>
             <br/>
             <li>
@@ -41,11 +41,7 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-<img class="imgb" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic.guim.co.uk%2Fsys-images%2FMoney%2FPix%2Fpictures%2F2014%2F9%2F25%2F1411647154273%2Fbarclays-bank-014.jpg&f=1&nofb=1" alt="img">
-        </div>
-    </div>
+<div style="text-align:center;width:100%;">
+    <img class="imgb" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic.guim.co.uk%2Fsys-images%2FMoney%2FPix%2Fpictures%2F2014%2F9%2F25%2F1411647154273%2Fbarclays-bank-014.jpg&f=1&nofb=1" alt="img">
 </div>
 @endsection

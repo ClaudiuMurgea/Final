@@ -29,9 +29,14 @@ class TransfersController extends Controller
 
 #Validation
                 $request->validate([
-                    'id' => ['required', 'exists:users,id'],
-                    'ammount' => ['required', new Balance],
-                    'description' => ['required']
+                    'id'                    => ['required', 'exists:users,id'],
+                    'ammount'               => ['required', new Balance],
+                    'description'           => ['required']
+                ],
+                [
+                    'id.required'           => 'You need to enter the User\'s ID!',
+                    'ammount.required'      => 'Ammount missing!',
+                    'description.required'  => 'Type anything!'
                 ]);               
 
 #Sender Update
